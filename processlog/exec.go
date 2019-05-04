@@ -14,7 +14,7 @@ func execution(commandName string, args []string, stdout, stderr io.Writer) (*os
 	childStderr, _ := cmd.StderrPipe()
 
 	go io.Copy(stdout, childStdout)
-	go io.Copy(stdout, childStderr)
+	go io.Copy(stderr, childStderr)
 
 	err := cmd.Run()
 	if err != nil {
