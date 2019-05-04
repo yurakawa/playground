@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// ログの出力先、実行コマンド名、オプションのリストを返す
 func initOut(logDir, commandName string) (stdout, stderr io.Writer, err error) {
 	if logDir == "" {
 		stdout = os.Stdout
@@ -16,7 +17,7 @@ func initOut(logDir, commandName string) (stdout, stderr io.Writer, err error) {
 		ts := time.Now().Unix()
 
 		stdoutFileName := fmt.Sprintf("%s-%v-stdout.log", commandName, ts)
-		stdoutFile, err := os.Create(filepath.Join(logDir,stdoutFileName))
+		stdoutFile, err := os.Create(filepath.Join(logDir, stdoutFileName))
 
 		if err != nil {
 			return nil, nil, err
