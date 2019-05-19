@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func main () {
+func main() {
 	// 乱数の種を初期化
 	rand.Seed(time.Now().UnixNano())
 
@@ -20,10 +20,6 @@ func main () {
 	}
 
 	// 乱数で選択したものを表示
-	fmt.Printf(os.Args[rand.Intn(c) + 1])
-
-	hoge := os.Args
-	fmt.Println(hoge)
+	fmt.Printf(os.Args[rand.Intn(c)+1])
+	fmt.Println(os.Args)
 }
-
-
