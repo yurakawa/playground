@@ -17,7 +17,7 @@ protoc \
 
 - 起動
 
-`go run server.go`
+`go run server/server.go`
 
 
 ### CLIツールで動作確認する

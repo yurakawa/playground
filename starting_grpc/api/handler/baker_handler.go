@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 	"math/rand"
-	"starting_grpc/api/gen/api"
+	"pancake/maker/gen/api"
 	"sync"
 	"time"
 

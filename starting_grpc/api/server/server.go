@@ -7,8 +7,8 @@ import (
 	"net"
 	"os"
 	"os/signal"
-	"starting_grpc/api/gen/api"
-	"starting_grpc/handler"
+	"pancake/maker/gen/api"
+	"pancake/maker/handler"
 
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_auth "github.com/grpc-ecosystem/go-grpc-middleware/auth"
