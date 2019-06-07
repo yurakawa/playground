@@ -13,6 +13,12 @@ protoc \
     --go_out=plugins=grpc:api \
     proto/*.proto
     
+### Usage
+
+- 起動
+
+`go run server.go`
+
 
 ### CLIツールで動作確認する
 - grpc-cliのインストール
@@ -22,6 +28,7 @@ brew install grpc
 
 
 ### CLIツールを使う
+
 - サービス確認
 grpc_cli ls localhost:50051 pancake.baker.PancakeBakerService -l filename: grpc_reflection_v1alpha/reflection.proto
 
