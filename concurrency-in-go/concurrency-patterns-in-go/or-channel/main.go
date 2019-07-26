@@ -10,7 +10,7 @@ import (
 func main() {
 	var or func(channels ...<-chan interface{}) <-chan interface{}
 	// チャネルの可変長引数のスライスを受け取り、1つのチャネルを返します。
-	or = func(channels ...<-chan interface{}) <-chan interface{} { // 1
+	or = func(channels ...<-chan interface{}) <-chan interface{} {
 		switch len(channels) {
 		case 0: // スライスが空の場合はnilチャネルを返す
 			return nil
@@ -28,14 +28,14 @@ func main() {
 				case <-channels[0]:
 				case <-channels[1]:
 				}
-			// スライスの3番目以降のチャネルから再帰的にorチャネルを作成して、そこからselectを行う。
-			// この再帰関係はスライスの残りの部分をorチャネルに分解して、最初のシグナルが帰ってくる木構造を形成する
 			default:
 				select {
 				case <-channels[0]:
 				case <-channels[1]:
 				case <-channels[2]:
-				case <-or(append(channels[3:], orDone)...): //6
+				// スライスの3番目以降のチャネルから再帰的にorチャネルを作成して、そこからselectを行う。
+				// この再帰関係はスライスの残りの部分をorチャネルに分解して、最初のシグナルが帰ってくる木構造を形成する
+				case <-or(append(channels[3:], orDone)...):
 				}
 			}
 		}()
