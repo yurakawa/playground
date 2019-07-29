@@ -1,4 +1,4 @@
-package case1
+package main
 
 import "fmt"
 
