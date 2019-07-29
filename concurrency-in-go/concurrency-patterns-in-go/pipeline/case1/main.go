@@ -1,9 +1,9 @@
-package main
+package case1
 
 import "fmt"
 
 func main(){
-	Best()
+	bestPractice()
 }
 
 // データの塊をいっぺんに処理するバッチ処理
@@ -56,7 +56,7 @@ func Stream() {
 
 // preventing-goroutine-leaksのパターンを利用
 // => どの関数もチャネルを返していていくつかは追加のチャネルも受け取っている
-func Best() {
+func bestPractice() {
 	// 個別の値の塊をチャネル上に流れるデータのストリームに変換する
 	generator := func(done <-chan interface{}, integers ...int) <-chan int {
 		intStream := make(chan int, len(integers))
