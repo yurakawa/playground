@@ -52,9 +52,9 @@ fi
 
 cd "$(mktemp -d)"
 
-service_name="playground"
-git clone https://github.com/yurakawa/"${service_name}".git
-cd "${service_name}"
+service_path="yurakawa/playground"
+git clone https://github.com/"${service_path}".git
+cd "${service_path}"
 
 
 if [ "${branch_type}" = "release" ]; then
@@ -68,5 +68,5 @@ git push origin "$incremented_tag"
 
 echo "${GITHUB_TOKEN}" > /tmp/gtoken
 gh auth login --with-token < /tmp/gtoken
-gh pr create -f -B master -H "${incremented_tag}" --title "${incremented_tag}"
+gh pr create -f -B master -H "${incremented_tag}" -t "${incremented_tag}"
 rm -f /tmp/gtoken
